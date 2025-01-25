@@ -1,0 +1,12 @@
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\bin\Debug\net8.0\PSM.Domain.deps.json
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\bin\Debug\net8.0\PSM.Domain.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\bin\Debug\net8.0\PSM.Domain.pdb
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.csproj.AssemblyReference.cache
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.AssemblyInfoInputs.cache
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.AssemblyInfo.cs
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\refint\PSM.Domain.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\PSM.Domain.pdb
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain\obj\Debug\net8.0\ref\PSM.Domain.dll
