@@ -52,6 +52,7 @@ namespace PMS.EntityFrameworkCore
         public async Task<List<Product>> GetListAsync(Expression<Func<Product, bool>> predicate)
         {
             var query = dbContext.Products.AsQueryable();
+
             if (predicate != null)
             {
                 query = query.Where(predicate);
@@ -84,7 +85,7 @@ namespace PMS.EntityFrameworkCore
             {
                 query = query.Where(p => (p.Title.Contains(keyword) ||
                                          p.Description.Contains(keyword) ||
-                                         p.Category.Name.Contains(keyword)));
+                                         p.Category.Name.Contains(keyword) || p.NormalizedTitle.Contains(keyword.ToLowerInvariant().Normalize())));
             }
 
             if (minStockQuantity.HasValue)

@@ -13,6 +13,7 @@ namespace PMS.Infrastructure.Middlewares
     {
         private readonly PMSDbContext dbContext;
 
+
         public AuditLogger(PMSDbContext dbContext)
         {
             this.dbContext = dbContext;
