@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PMS.EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f74e59eed869a9efeb4497f003f453ba18076c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04a2ccac55d04c6dbffce3ca9bb29bedc1493250")]
 [assembly: System.Reflection.AssemblyProductAttribute("PMS.EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PMS.EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
