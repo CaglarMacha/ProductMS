@@ -17,6 +17,7 @@ namespace PSM.Domain.Stocks
         }
         public Guid ProductId { get; set; }
         public int Quantity { get; set; }
+        public StockActionTypes StockActionTypes { get; set; }
         public Product Product { get; set; }
         public Stock(Guid productId, int quantity)
         {

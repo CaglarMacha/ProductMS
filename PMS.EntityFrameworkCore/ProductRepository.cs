@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PMS.EntityFrameworkCore.Core;
+using PSM.Domain.Entities;
 using PSM.Domain.Products;
+using PSM.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +26,22 @@ namespace PMS.EntityFrameworkCore
             await dbContext.SaveChangesAsync();
             return product;
         }
-
-        public Task DeleteAsync(Guid id)
+        public async Task<List<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await dbContext.Products
+                .AsNoTracking()
+                .ToListAsync();
         }
+
 
         public async Task<Product?> GetAsync(Guid id)
         {
-            return await dbContext.Products.Where(x => x.Id == id).SingleOrDefaultAsync();
+            return await dbContext.Products.Where(x => x.Id == id && !x.IsDeleted).SingleOrDefaultAsync();
         }
-
+        public async Task<Product?> GetActiveProductAsync(Guid id)
+        {
+            return await dbContext.Products.Where(x => x.Id == id && !x.IsDeleted && x.IsActive).SingleOrDefaultAsync();
+        }
         public async Task<List<Product>> GetListAsync()
         {
             return await dbContext.Products
@@ -42,9 +49,14 @@ namespace PMS.EntityFrameworkCore
                 .ToListAsync();
         }
 
-        public Task<List<Product>> GetListAsync(Expression<Func<Product, bool>> predicate)
+        public async Task<List<Product>> GetListAsync(Expression<Func<Product, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var query = dbContext.Products.AsQueryable();
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+            return await query.ToListAsync();
         }
 
         public async Task<Product?> GetProductByTitleAsync(string title)
@@ -57,21 +69,57 @@ namespace PMS.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public Task<Product> GetProductWithCategoryAsync(Guid productId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Product> InsertAsync(Product entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Product> UpdateAsync(Product entity)
         {
             dbContext.Products.Update(entity);
             await dbContext.SaveChangesAsync();
             return entity;
+        }
+        public async Task<List<Product>> GetFilteredProductsAsync(string? keyword = null, int? minStockQuantity = null, int? maxStockQuantity = null)
+        {
+            IQueryable<Product> query = dbContext.Products.Include(p => p.Category)
+                .AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(p => (p.Title.Contains(keyword) ||
+                                         p.Description.Contains(keyword) ||
+                                         p.Category.Name.Contains(keyword)));
+            }
+
+            if (minStockQuantity.HasValue)
+            {
+                query = query.Where(p => p.StockQuantity >= minStockQuantity.Value);
+            }
+
+            if (maxStockQuantity.HasValue)
+            {
+                query = query.Where(p => p.StockQuantity <= maxStockQuantity.Value);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Product>> GetFilteredProductsAsync(Expression<Func<Product, bool>> predicate)
+        {
+            return await dbContext.Products
+                .AsNoTracking()
+                .Include(p => p.Category)
+                .Where(predicate)
+                .ToListAsync();
+        }
+        public async Task DeleteAsync(Guid id)
+        {
+            var product = await dbContext.Products.Where(x => x.Id == id).SingleOrDefaultAsync();
+            product.IsDeleted = true;
+            product.IsActive = false;
+            await UpdateAsync(product);
+        }
+        public async Task<Product> DeleteAsync(Product entity)
+        {
+            entity.IsDeleted = true;
+            entity.IsActive = false;
+            return await UpdateAsync(entity);
         }
     }
 }

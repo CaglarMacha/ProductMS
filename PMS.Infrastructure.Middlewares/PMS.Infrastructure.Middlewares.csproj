@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PMS.EntityFrameworkCore\PMS.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\PSM.Domain\PSM.Domain.csproj" />
   </ItemGroup>
 

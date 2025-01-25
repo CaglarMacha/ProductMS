@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PSM.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+753394012240d515f8497d41253d472c1a68b7d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f74e59eed869a9efeb4497f003f453ba18076c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("PSM.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PSM.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

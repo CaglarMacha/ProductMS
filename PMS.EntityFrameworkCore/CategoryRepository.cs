@@ -2,6 +2,7 @@
 using PMS.EntityFrameworkCore.Core;
 using PSM.Domain.Categories;
 using PSM.Domain.Products;
+using PSM.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,16 @@ namespace PMS.EntityFrameworkCore
             await dbContext.SaveChangesAsync();
             return category;
         }
-
+        public async Task<Category?> GetCategoryByNameAsync(string name)
+        {
+            return await dbContext.Categorys.Where(p => p.Name == name).SingleOrDefaultAsync();
+        }
         public Task DeleteAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(Category entity)
         {
             throw new NotImplementedException();
         }
@@ -33,11 +42,6 @@ namespace PMS.EntityFrameworkCore
         public Task<Category> GetAsync(Guid id)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<Category?> GetCategoryByNameAsync(string name)
-        {
-            return await dbContext.Categorys.Where(p => p.Name == name).SingleOrDefaultAsync();
         }
 
         public Task<List<Category>> GetListAsync()
@@ -50,12 +54,12 @@ namespace PMS.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public Task<Category> InsertAsync(Category entity)
+        public Task<Category> UpdateAsync(Category entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Category> UpdateAsync(Category entity)
+        Task<Category> IRepository<Category, Guid>.DeleteAsync(Category entity)
         {
             throw new NotImplementedException();
         }

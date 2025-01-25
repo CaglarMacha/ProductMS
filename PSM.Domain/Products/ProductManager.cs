@@ -32,6 +32,20 @@ namespace PSM.Domain.Products
             newProduct.Category = category;
             return newProduct;
         }
+        public async Task<Product> DeleteAsync(Guid id)
+        {
+            var existingProduct = await productRepository.GetAsync(id);
+            if (existingProduct == null) throw new Exception("Not Found");
+            if (existingProduct.StockQuantity > 0)
+            {
+                throw new Exception("Having Stock Quantity Product Can Not Delete");
+            }
+            else
+            {
+                await productRepository.DeleteAsync(existingProduct);
+            }
+            return existingProduct;
+        }
 
         private async Task<bool> CheckProductExistAsync(string title)
         {

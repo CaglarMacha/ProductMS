@@ -10,5 +10,6 @@ namespace PSM.Application.Contracts.Stocks
     public interface IStockAppService
     {
         Task<StockDto> CreateAsync(CreateStockDto entity);
+        Task<StockDto> RemoveStockAsync(RemoveStockDto input);
     }
 }

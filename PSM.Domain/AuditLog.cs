@@ -16,5 +16,7 @@ namespace PSM.Domain
         public int StatusCode { get; set; }
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
         public long Duration { get; set; } // Milliseconds
+
+
     }
 }

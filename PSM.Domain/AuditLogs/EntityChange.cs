@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSM.Domain
+namespace PSM.Domain.AuditLogs
 {
-    public class ProductManager
+    public class EntityChange
     {
     }
 }

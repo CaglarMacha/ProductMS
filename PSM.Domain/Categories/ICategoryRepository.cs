@@ -10,6 +10,6 @@ namespace PSM.Domain.Categories
 {
     public interface ICategoryRepository: IRepository<Category, Guid>
     {
-        Task<Category> GetCategoryByNameAsync(string name);
+        Task<Category?> GetCategoryByNameAsync(string name);
     }
 }

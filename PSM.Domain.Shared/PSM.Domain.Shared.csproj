@@ -6,11 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!--<ProjectReference Include="..\PSM.Domain\PSM.Domain.csproj" />-->
-  </ItemGroup>
-
-  <ItemGroup>
+  <ItemGroup><!--<ProjectReference Include="..\PSM.Domain\PSM.Domain.csproj" />-->
+  
     <Folder Include="Products\" />
   </ItemGroup>
 

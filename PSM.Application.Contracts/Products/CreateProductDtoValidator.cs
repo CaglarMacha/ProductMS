@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace PSM.Application.Contracts.Products
 {
-    public class CreateProductDtoValidator: AbstractValidator<CreateProductDto>
+    public class UpdateProductDtoValidator : AbstractValidator<UpdateProductDto>
     {
-        public CreateProductDtoValidator()
+        public UpdateProductDtoValidator()
         {
-            RuleFor(x => x.Title)
-           .NotEmpty().WithMessage("Title is required.")
-           .MaximumLength(ProductConsts.MaxTitleLength).WithMessage("Title cannot exceed 200 characters.");
+            When(a => !string.IsNullOrWhiteSpace(a.Title), () =>
+            {
+                RuleFor(x => x.Title)
+                    .MaximumLength(ProductConsts.MaxTitleLength)
+                    .WithMessage("Title cannot exceed 200 characters.")
+                    .WithMessage("Required Field");
+            });
         }
      
     }

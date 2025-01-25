@@ -9,6 +9,7 @@ using PSM.Application.Contracts;
 using PSM.Domain.Shared;
 using AutoMapper;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AutoMapper.Internal.Mappers;
 
 namespace PSM.Application
 {
@@ -32,6 +33,7 @@ namespace PSM.Application
 
             unitOfWork.BeginTransaction();
             await productRepository.CreateAsync(product);
+
             await unitOfWork.CommitTransactionAsync();
             unitOfWork.Dispose();
             return new ProductDto
@@ -42,10 +44,20 @@ namespace PSM.Application
                 CategoryId = product.CategoryId
             };
         }
-
-        public Task DeleteAsync(Guid id)
+        public async Task<List<ProductDto>> GetFilteredProductsAsync(string title, int? minStock, int? maxStock)
         {
-            throw new NotImplementedException();
+            var query = await productRepository.GetFilteredProductsAsync(title, minStock, maxStock);
+
+            return mapper.Map<List<Product>, List<ProductDto>>(query);
+        }
+
+        public async Task<ProductDto> DeleteAsync(Guid id)
+        {
+            unitOfWork.BeginTransaction();
+            var data = await productManager.DeleteAsync(id);
+            await unitOfWork.CommitTransactionAsync();
+            unitOfWork.Dispose();
+            return mapper.Map<ProductDto>(data);
         }
 
         public async Task<ProductDto> GetAsync(Guid id)
@@ -60,18 +72,22 @@ namespace PSM.Application
             return mapper.Map<List<ProductDto>>(data);
         }
 
-        public Task<List<ProductDto>> GetListAsync(Expression<Func<ProductDto, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<List<ProductDto>> GetListAsync(Expression<Func<ProductDto, bool>> predicate)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public Task<ProductDto> InsertAsync(ProductDto entity)
+        public async Task<ProductDto> UpdateAsync(Guid id, UpdateProductDto entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ProductDto> UpdateAsync(ProductDto entity)
-        {
+            unitOfWork.BeginTransaction();
+            var existingProduct = await productRepository.GetAsync(id);
+            if (existingProduct == null)
+            {
+                throw new BusinessException(message: "Not Found");
+            }
+            existingProduct.IsActive = false;
+            //var updatedProduct = await productManager.CreateAsync();
+            
             throw new NotImplementedException();
         }
     }

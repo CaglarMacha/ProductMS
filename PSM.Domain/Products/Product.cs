@@ -2,6 +2,7 @@
 using PSM.Domain.Entities;
 using PSM.Domain.Stocks;
 using System;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 
 
@@ -9,7 +10,8 @@ namespace PSM.Domain.Products
 {
     public class Product : AuditedAggregateRoot<Guid>
     {
-        public string Title { get; set; } 
+        public string Title { get; set; }
+        public string NormalizedTitle { get; private set; }
         public string Description { get; set; } 
         public int StockQuantity { get; set; } 
         public Category Category { get; set; }
@@ -33,12 +35,16 @@ namespace PSM.Domain.Products
             SetTitle(title);
             CategoryId = category;
             Description = description;
+            SetIsActive();
         }
+
+
         private void SetTitle([NotNull] string title)
         {
             if (!string.IsNullOrWhiteSpace(title) && title.Length<= ProductConsts.MaxTitleLength) 
             {
                 Title = title;
+                NormalizedTitle = title.ToLowerInvariant().Normalize();
             };
         }
         private void SetIsActive() 
@@ -48,9 +54,16 @@ namespace PSM.Domain.Products
             else
                 IsActive = false;
         }
-        public void SetQuantity(int quantity) 
+        public void SetQuantity(int quantity, StockActionTypes stockActionTypes)
         {
-            StockQuantity += quantity;
+            if (stockActionTypes == StockActionTypes.Add)
+                StockQuantity += quantity;
+            else
+            {
+                if (StockQuantity >= quantity)
+                    StockQuantity -= quantity;
+            }
+            SetIsActive();
         }
     }
 }

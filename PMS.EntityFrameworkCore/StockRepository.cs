@@ -1,12 +1,6 @@
 ﻿using PMS.EntityFrameworkCore.Core;
-using PSM.Domain.Products;
 using PSM.Domain.Stocks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PMS.EntityFrameworkCore
 {
@@ -30,6 +24,11 @@ namespace PMS.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
+        public Task<Stock> DeleteAsync(Stock entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Stock> GetAsync(Guid id)
         {
             throw new NotImplementedException();
@@ -41,11 +40,6 @@ namespace PMS.EntityFrameworkCore
         }
 
         public Task<List<Stock>> GetListAsync(Expression<Func<Stock, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Stock> InsertAsync(Stock entity)
         {
             throw new NotImplementedException();
         }
