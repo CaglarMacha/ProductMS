@@ -46,7 +46,7 @@ namespace PSM.Domain.Products
         //}
         public async Task<Stock> RemoveStockAsync([NotNull] Guid productId, int quantity)
         {
-            var product = await productRepository.GetAsync(productId);
+            var product = await productRepository.GetAsync(productId); // Bunu kaldır defalarca db giden yerleri gözden geçir
             if (product.StockQuantity <= quantity)
                 throw new ArgumentException();
             var newStock = new Stock(

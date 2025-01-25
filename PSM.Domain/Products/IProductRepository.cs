@@ -15,5 +15,6 @@ namespace PSM.Domain.Products
         Task<List<Product>> GetFilteredProductsAsync(string? keyword = null, int? minStockQuantity = null, int? maxStockQuantity = null);
         Task<List<Product>> GetFilteredProductsAsync(Expression<Func<Product, bool>> predicate);
         Task<Product?> GetActiveProductAsync(Guid id);
+        Task<Product?> GetProductWithStockAsync(Guid id);
     }
 }

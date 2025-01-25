@@ -3,6 +3,7 @@ using PMS.EntityFrameworkCore.Core;
 using PSM.Domain.Entities;
 using PSM.Domain.Products;
 using PSM.Domain.Shared;
+using PSM.Domain.Stocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,10 @@ namespace PMS.EntityFrameworkCore
         public async Task<Product?> GetAsync(Guid id)
         {
             return await dbContext.Products.Where(x => x.Id == id && !x.IsDeleted).SingleOrDefaultAsync();
+        }
+        public async Task<Product?> GetProductWithStockAsync(Guid id)
+        {
+            return await dbContext.Products.Include(p=>p.Stocks).Where(x => x.Id == id && !x.IsDeleted).SingleOrDefaultAsync();
         }
         public async Task<Product?> GetActiveProductAsync(Guid id)
         {

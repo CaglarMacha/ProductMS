@@ -48,10 +48,11 @@ namespace PSM.Application.Stocks
         public async Task<StockDto> RemoveStockAsync(RemoveStockDto input)
         {
             unitOfWork.BeginTransaction();
-            var existingProduct = await productRepository.GetAsync(input.ProductId);
+            var existingProduct = await productRepository.GetProductWithStockAsync(input.ProductId);
             if (existingProduct == null)
                 throw new Exception("Not Found");
-
+            if(existingProduct.Stocks == null || existingProduct.Stocks.Sum(x => x.Quantity) <= StockConsts.MinStockConst) //Sadece StockQuantity bilgisini alır hale getir.Tüm data değil
+                throw new Exception("Stock Can Not Be smaller than 1");
             var stock = await stockManager.RemoveStockAsync(input.ProductId, input.Quantity);
 
             existingProduct.SetQuantity(input.Quantity, stock.StockActionTypes);

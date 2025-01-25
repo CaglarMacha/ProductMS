@@ -50,7 +50,12 @@ namespace PSM.Application.Products
 
             return mapper.Map<List<Product>, List<ProductDto>>(query);
         }
+        public async Task<ProductDto> GetProductWithStockAsync(Guid id)
+        {
+            var query = await productRepository.GetProductWithStockAsync(id);
 
+            return mapper.Map<Product, ProductDto>(query);
+        }
         public async Task<ProductDto> DeleteAsync(Guid id)
         {
             unitOfWork.BeginTransaction();
