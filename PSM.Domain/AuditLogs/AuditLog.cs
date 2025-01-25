@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSM.Domain
+namespace PSM.Domain.AuditLogs
 {
-    public class AuditLog: AuditedAggregateRoot<Guid>
+    public class AuditLog : AuditedAggregateRoot<Guid>
     {
         public string RequestPath { get; set; } = string.Empty;
         public string HttpMethod { get; set; } = string.Empty;
@@ -15,7 +15,7 @@ namespace PSM.Domain
         public string ResponseBody { get; set; } = string.Empty;
         public int StatusCode { get; set; }
         public DateTime Timestamp { get; set; } = DateTime.UtcNow;
-        public long Duration { get; set; } // Milliseconds
+        public long Duration { get; set; }
 
 
     }

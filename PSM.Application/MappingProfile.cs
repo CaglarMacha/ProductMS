@@ -11,7 +11,6 @@ namespace PSM.Application
             CreateMap<Product, ProductDto>();
             CreateMap<ProductDto, Product>();
 
-            //CreateMap<List<Product>, List<ProductDto>>();
         }
     }
 }

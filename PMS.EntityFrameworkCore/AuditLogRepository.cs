@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PMS.EntityFrameworkCore.Core;
-using PSM.Domain;
 using PSM.Domain.AuditLogs;
 using System;
 using System.Collections.Generic;

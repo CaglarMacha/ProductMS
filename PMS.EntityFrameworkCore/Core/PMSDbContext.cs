@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PSM.Domain;
 using PSM.Domain.AuditLogging;
+using PSM.Domain.AuditLogs;
 using PSM.Domain.Categories;
 using PSM.Domain.Entities;
 using PSM.Domain.Products;

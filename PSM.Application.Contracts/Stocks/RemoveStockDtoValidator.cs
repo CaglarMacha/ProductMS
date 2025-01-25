@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PSM.Application.Contracts.Stocks
 {
-    public class UpdateStockDtoValidator : AbstractValidator<RemoveStockDto>
+    public class RemoveStockDtoValidator : AbstractValidator<RemoveStockDto>
     {
-        public UpdateStockDtoValidator()
+        public RemoveStockDtoValidator()
         {
             RuleFor(x => x.Quantity)
                 .GreaterThan(0).WithMessage("Quantity must be greater than zero.");
