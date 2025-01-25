@@ -6,7 +6,7 @@ namespace PSM.Application.Contracts
     public interface IProductAppService
     {
         Task<ProductDto> GetAsync(Guid id);
-        //Task<List<TEntity>> GetListAsync();
+        Task<List<ProductDto>> GetListAsync();
         //Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
         Task<ProductDto> CreateAsync(CreateProductDto entity);
         //Task<CreateProductDto> InsertAsync(Products entity);

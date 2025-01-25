@@ -15,3 +15,4 @@ C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application.Contracts\obj\Debug\n
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application.Contracts\obj\Debug\net8.0\refint\PSM.Application.Contracts.dll
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application.Contracts\obj\Debug\net8.0\PSM.Application.Contracts.pdb
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application.Contracts\obj\Debug\net8.0\ref\PSM.Application.Contracts.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application.Contracts\obj\Debug\net8.0\PSM.Application.Contracts.sourcelink.json

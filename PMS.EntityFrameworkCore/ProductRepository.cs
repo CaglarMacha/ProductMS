@@ -30,9 +30,9 @@ namespace PMS.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public Task<Product> GetAsync(Guid id)
+        public async Task<Product?> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await dbContext.Products.Where(x => x.Id == id).SingleOrDefaultAsync();
         }
 
         public async Task<List<Product>> GetListAsync()
@@ -67,9 +67,11 @@ namespace PMS.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public Task<Product> UpdateAsync(Product entity)
+        public async Task<Product> UpdateAsync(Product entity)
         {
-            throw new NotImplementedException();
+            dbContext.Products.Update(entity);
+            await dbContext.SaveChangesAsync();
+            return entity;
         }
     }
 }

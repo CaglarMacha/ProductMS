@@ -9,3 +9,4 @@ C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain.Shared\obj\Debug\net8.0\PS
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain.Shared\obj\Debug\net8.0\refint\PSM.Domain.Shared.dll
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain.Shared\obj\Debug\net8.0\PSM.Domain.Shared.pdb
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain.Shared\obj\Debug\net8.0\ref\PSM.Domain.Shared.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Domain.Shared\obj\Debug\net8.0\PSM.Domain.Shared.sourcelink.json

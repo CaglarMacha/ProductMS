@@ -17,3 +17,4 @@ C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application\obj\Debug\net8.0\PSM.
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application\obj\Debug\net8.0\refint\PSM.Application.dll
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application\obj\Debug\net8.0\PSM.Application.pdb
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application\obj\Debug\net8.0\ref\PSM.Application.dll
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PSM.Application\obj\Debug\net8.0\PSM.Application.sourcelink.json

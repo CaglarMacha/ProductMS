@@ -31,11 +31,6 @@ namespace PMS.EntityFrameworkCore.Core
             }
         }
 
-        public Task<int> CompleteAsync()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Dispose()
         {
             dbContext.Dispose();

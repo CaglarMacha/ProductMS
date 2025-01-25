@@ -17,3 +17,4 @@ C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PMS.EntityFrameworkCore\obj\Debug\net
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PMS.EntityFrameworkCore\obj\Debug\net8.0\ref\PMS.EntityFrameworkCore.dll
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PMS.EntityFrameworkCore\bin\Debug\net8.0\PSM.Domain.Shared.dll
 C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PMS.EntityFrameworkCore\bin\Debug\net8.0\PSM.Domain.Shared.pdb
+C:\Users\cagla\OneDrive\Masaüstü\CasePsm\PMS.EntityFrameworkCore\obj\Debug\net8.0\PMS.EntityFrameworkCore.sourcelink.json
