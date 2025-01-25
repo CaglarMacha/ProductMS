@@ -20,7 +20,7 @@ namespace PSM.Domain.Categories
             var existingCategory = await categoryRepository.GetCategoryByNameAsync(name);
             if (existingCategory == null)
             {
-                var newCategory = await categoryRepository.CreateAsync(new Category { Id = Guid.NewGuid(), Name = name });
+                var newCategory = await categoryRepository.CreateAsync(new Category (Guid.NewGuid(),name ));
                 return newCategory;
             }
             else

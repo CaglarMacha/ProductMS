@@ -18,7 +18,7 @@ namespace PMS.EntityFrameworkCore.Core
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<AuditLogging> AuditLoggings { get; set; }

@@ -55,6 +55,7 @@ namespace PSM.Domain.Products
             existingProduct.SetTitle(title);
             existingProduct.SetCategory(category);
             existingProduct.Category = category;
+            existingProduct.LastModificationTime = DateTime.Now;
             return await productRepository.UpdateAsync(existingProduct);
         }
         private async Task<bool> CheckProductExistAsync(string title)

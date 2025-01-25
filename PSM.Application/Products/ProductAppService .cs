@@ -5,13 +5,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using PSM.Application.Contracts.Products;
-using PSM.Application.Contracts;
 using PSM.Domain.Shared;
 using AutoMapper;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using AutoMapper.Internal.Mappers;
 
-namespace PSM.Application
+namespace PSM.Application.Products
 {
     public class ProductAppService : IProductAppService
     {
@@ -29,9 +28,10 @@ namespace PSM.Application
         }
         public async Task<ProductDto> CreateAsync(CreateProductDto input)
         {
+            unitOfWork.BeginTransaction();
             var product = await productManager.CreateAsync(input.Title, input.Category, input.Description);
 
-            unitOfWork.BeginTransaction();
+           
             await productRepository.CreateAsync(product);
 
             await unitOfWork.CommitTransactionAsync();
@@ -62,7 +62,7 @@ namespace PSM.Application
 
         public async Task<ProductDto> GetAsync(Guid id)
         {
-            var data =  await productRepository.GetAsync(id);
+            var data = await productRepository.GetAsync(id);
             return mapper.Map<ProductDto>(data);
         }
 
@@ -71,11 +71,6 @@ namespace PSM.Application
             var data = await productRepository.GetListAsync();
             return mapper.Map<List<ProductDto>>(data);
         }
-
-        //public Task<List<ProductDto>> GetListAsync(Expression<Func<ProductDto, bool>> predicate)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public async Task<ProductDto> UpdateAsync(Guid id, UpdateProductDto entity)
         {
@@ -86,11 +81,16 @@ namespace PSM.Application
                 throw new BusinessException(message: "Not Found");
             }
 
-            var updatedProduct = await productManager.UpdateAsync(id,entity.Title,entity.CategoryName,entity.Description);
+            var updatedProduct = await productManager.UpdateAsync(id, entity.Title, entity.CategoryName, entity.Description);
             await unitOfWork.CommitTransactionAsync();
             unitOfWork.Dispose();
 
             return mapper.Map<ProductDto>(updatedProduct);
         }
+
+        //public Task<List<ProductDto>> GetListAsync(Expression<Func<ProductDto, bool>> predicate)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

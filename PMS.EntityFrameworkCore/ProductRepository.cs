@@ -62,6 +62,7 @@ namespace PMS.EntityFrameworkCore
 
         public async Task<Product?> GetProductByTitleAsync(string title)
         {
+            //TODO: Datayı çekmeyen Any halini ekle
             return await dbContext.Products.Where(p => p.Title == title && !p.IsDeleted).FirstOrDefaultAsync();
         }
 

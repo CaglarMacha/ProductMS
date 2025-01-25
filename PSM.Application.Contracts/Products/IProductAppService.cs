@@ -1,7 +1,4 @@
-﻿using PSM.Application.Contracts.Products;
-
-
-namespace PSM.Application.Contracts
+﻿namespace PSM.Application.Contracts.Products
 {
     public interface IProductAppService
     {

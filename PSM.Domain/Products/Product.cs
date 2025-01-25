@@ -13,7 +13,7 @@ namespace PSM.Domain.Products
         public string Title { get; set; }
         public string NormalizedTitle { get; private set; }
         public string Description { get; set; } 
-        public int StockQuantity { get; set; } 
+        public int StockQuantity { get; set; }  // Bu kaldırılabilir.
         public Category Category { get; set; }
         public Guid CategoryId { get; set; }
         public bool IsActive { get; set; }

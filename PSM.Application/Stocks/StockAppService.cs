@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PSM.Application
+namespace PSM.Application.Stocks
 {
     public class StockAppService : IStockAppService
     {
@@ -31,7 +31,7 @@ namespace PSM.Application
             var existingProduct = await productRepository.GetAsync(input.ProductId);
             if (existingProduct == null)
                 throw new Exception("Not Found");
-           
+
             var stock = await stockManager.CreateAsync(input.ProductId, input.Quantity);
 
             existingProduct.SetQuantity(input.Quantity, stock.StockActionTypes);

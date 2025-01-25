@@ -21,13 +21,13 @@ namespace PMS.EntityFrameworkCore
         }
         public async Task<Category> CreateAsync(Category category)
         {
-            var data = await dbContext.Categorys.AddAsync(category);
+            var data = await dbContext.Categories.AddAsync(category);
             await dbContext.SaveChangesAsync();
             return category;
         }
         public async Task<Category?> GetCategoryByNameAsync(string name)
         {
-            return await dbContext.Categorys.Where(p => p.Name == name).SingleOrDefaultAsync();
+            return await dbContext.Categories.Where(p => p.Name == name).SingleOrDefaultAsync();
         }
         public Task DeleteAsync(Guid id)
         {
