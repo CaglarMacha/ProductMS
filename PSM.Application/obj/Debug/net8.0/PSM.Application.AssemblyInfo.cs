@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PSM.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04a2ccac55d04c6dbffce3ca9bb29bedc1493250")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0998183401d8899a06d8f00768f21c8f1ef048ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("PSM.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PSM.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

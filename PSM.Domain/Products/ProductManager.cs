@@ -46,7 +46,17 @@ namespace PSM.Domain.Products
             }
             return existingProduct;
         }
+        public async Task<Product> UpdateAsync(Guid id,[NotNull] string title, string categoryName, string Description = null)
+        {
+            var existingProduct = await productRepository.GetAsync(id);
 
+            var category = await categoryManager.CreateAsync(categoryName);
+            existingProduct.CategoryId = category.Id;
+            existingProduct.SetTitle(title);
+            existingProduct.SetCategory(category);
+            existingProduct.Category = category;
+            return await productRepository.UpdateAsync(existingProduct);
+        }
         private async Task<bool> CheckProductExistAsync(string title)
         {
             var existingProduct = await productRepository.GetProductByTitleAsync(title);

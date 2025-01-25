@@ -85,10 +85,12 @@ namespace PSM.Application
             {
                 throw new BusinessException(message: "Not Found");
             }
-            existingProduct.IsActive = false;
-            //var updatedProduct = await productManager.CreateAsync();
-            
-            throw new NotImplementedException();
+
+            var updatedProduct = await productManager.UpdateAsync(id,entity.Title,entity.CategoryName,entity.Description);
+            await unitOfWork.CommitTransactionAsync();
+            unitOfWork.Dispose();
+
+            return mapper.Map<ProductDto>(updatedProduct);
         }
     }
 }

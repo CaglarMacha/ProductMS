@@ -38,8 +38,12 @@ namespace PSM.Domain.Products
             SetIsActive();
         }
 
-
-        private void SetTitle([NotNull] string title)
+        public void SetCategory(Category category) 
+        {
+            Category = category;
+            CategoryId = category.Id;
+        }
+        public void SetTitle([NotNull] string title)
         {
             if (!string.IsNullOrWhiteSpace(title) && title.Length<= ProductConsts.MaxTitleLength) 
             {
